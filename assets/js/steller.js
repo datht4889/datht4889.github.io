@@ -1,18 +1,3 @@
-/*!
-=========================================================
-* Steller Landing page
-=========================================================
-
-* Copyright: 2019 DevCRUD (https://devcrud.com)
-* Licensed: (https://devcrud.com/licenses)
-* Coded by www.devcrud.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// smooth scroll
 $(document).ready(function(){
 	$(".nav-link").on('click', function(event) {
 
@@ -30,3 +15,15 @@ $(document).ready(function(){
       	} 
     });
 });
+
+function sendEmailDefault(){
+	var email = "hoangthanhdat.thd@gmail.com";
+	var subject = document.getElementById("contact-subject").value;
+	var msgBody = document.getElementById("contact-message").value;
+	window.open(`mailto:${email}?subject=${subject}&body=${msgBody}`);
+  }
+
+function darkMode() {
+	var body = document.body;
+	body.classList.toggle("dark-mode");
+}
