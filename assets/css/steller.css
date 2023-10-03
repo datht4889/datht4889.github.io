@@ -11376,6 +11376,10 @@ pre {
   transition: all 0.3s;
 }
 
+.navbar .navbar-nav .nav-link {
+  color: #fff;
+}
+
 .navbar .navbar-nav .nav-link.active {
   color: #ff7a57;
 }
