@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from assets.projects.flask import Flask, render_template
 
 # Khởi tạo Flask
 app = Flask(__name__)

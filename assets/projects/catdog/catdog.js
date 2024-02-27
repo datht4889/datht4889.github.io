@@ -4,7 +4,7 @@ const CLASSES = {
     };
 
 $("document").ready (async function() {
-    model = await tf.loadLayersModel('http://127.0.0.1:5500/model/model.json');
+    model = await tf.loadLayersModel('http://127.0.0.1:5500/assets/projects/catdog/model/model.json');
     console.log('Load model');
     console.log(model.summary());
     });
