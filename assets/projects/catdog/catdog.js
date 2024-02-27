@@ -27,8 +27,6 @@ $("document").ready (async function() {
 };
 
 async function classifyImage() {
-
-        // 1. Chuyen anh ve tensor
         let image = document.getElementById("imagePreview");
         let img = tf.browser.fromPixels(image);
         let normalizationOffset = tf.scalar(255/2); // 127.5
@@ -40,12 +38,10 @@ async function classifyImage() {
                 .reverse(2)
                 .expandDims();
 
-        // 2. Predict
         let predictions = await model.predict(tensor);
         predictions = Array.from(predictions.dataSync());
         console.log(predictions);
 
-        // 3. Hien thi len man hinh
         let top5 = Array.from(predictions)
             .map(function (p, i) {
                 return {
