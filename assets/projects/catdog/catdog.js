@@ -4,7 +4,8 @@ const CLASSES = {
     };
 
 $("document").ready (async function() {
-    model = await tf.loadLayersModel('http://127.0.0.1:5500/assets/projects/catdog/model/model.json');
+    model = await tf.loadLayersModel('https://datht4889.github.io//assets/projects/catdog/model/model.json');
+    // model = await tf.loadLayersModel('assets/projects/catdog/model/model.json');
     console.log('Load model');
     console.log(model.summary());
     });
@@ -42,7 +43,7 @@ async function classifyImage() {
         predictions = Array.from(predictions.dataSync());
         console.log(predictions);
 
-        let top5 = Array.from(predictions)
+        let res = Array.from(predictions)
             .map(function (p, i) {
                 return {
                     probability: p,
@@ -51,10 +52,10 @@ async function classifyImage() {
             }).sort(function (a, b) {
                 return b.probability - a.probability;
             });
-            console.log(top5);
+            console.log(res);
             $("#result").empty();
-            top5.forEach(function (p) {
-                    $("#result").append(`<li>${p.className}: ${p.probability.toFixed(3)}</li>`);
+            res.forEach(function (p) {
+                    $("#result").append(`<li>${p.className}: ${p.probability.toFixed(5)*100}%</li>`);
                 });
 };
 
